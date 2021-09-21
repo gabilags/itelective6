@@ -384,7 +384,7 @@ class _LoginState extends State<Login> {
                         height: double.infinity,
                         width: double.infinity,
                         child: const Image(
-                          image: AssetImage('background.jpg'),
+                          image: AssetImage('assets/background.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),

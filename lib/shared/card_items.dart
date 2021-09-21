@@ -88,7 +88,7 @@ class Carditems extends StatelessWidget {
                     top: Radius.circular(10),
                   ),
                   child: FittedBox(
-                    child: Image.network(imagelocation),
+                    child: Image.asset(imagelocation),
                     fit: BoxFit.fill,
                   ),
                 ),

@@ -242,8 +242,8 @@ class _LoginState extends State<Login> {
                                           const BorderRadius.horizontal(
                                               left: Radius.circular(5)),
                                     ),
-                                    child: Image(
-                                      image: AssetImage('smallFacebook.png'),
+                                    child: Image.asset(
+                                      "assets/smallFacebook.png",
                                       height: dsize.height * .03,
                                     ),
                                   ),
@@ -284,8 +284,8 @@ class _LoginState extends State<Login> {
                                           const BorderRadius.horizontal(
                                               left: Radius.circular(5)),
                                     ),
-                                    child: Image(
-                                      image: AssetImage('twitter.png'),
+                                    child: Image.asset(
+                                      "assets/twitter.png",
                                       height: dsize.height * .04,
                                     ),
                                   ),
@@ -325,9 +325,9 @@ class _LoginState extends State<Login> {
                                           const BorderRadius.horizontal(
                                               left: Radius.circular(5)),
                                     ),
-                                    child: Image(
-                                      image: AssetImage('google.png'),
-                                      height: dsize.height * .02,
+                                    child: Image.asset(
+                                      "assets/google.png",
+                                      height: dsize.height * .04,
                                     ),
                                   ),
                                   Expanded(
@@ -635,9 +635,8 @@ class _LoginState extends State<Login> {
                                                   const BorderRadius.horizontal(
                                                       left: Radius.circular(5)),
                                             ),
-                                            child: Image(
-                                              image: AssetImage(
-                                                  'smallFacebook.png'),
+                                            child: Image.asset(
+                                              "assets/smallFacebook.png",
                                               height: dsize.height * .03,
                                             ),
                                           ),
@@ -682,8 +681,8 @@ class _LoginState extends State<Login> {
                                                   const BorderRadius.horizontal(
                                                       left: Radius.circular(5)),
                                             ),
-                                            child: Image(
-                                              image: AssetImage('twitter.png'),
+                                            child: Image.asset(
+                                              "assets/twitter.png",
                                               height: dsize.height * .04,
                                             ),
                                           ),
@@ -727,9 +726,9 @@ class _LoginState extends State<Login> {
                                                   const BorderRadius.horizontal(
                                                       left: Radius.circular(5)),
                                             ),
-                                            child: Image(
-                                              image: AssetImage('google.png'),
-                                              height: dsize.height * .02,
+                                            child: Image.asset(
+                                              "assets/google.png",
+                                              height: dsize.height * .03,
                                             ),
                                           ),
                                           Container(

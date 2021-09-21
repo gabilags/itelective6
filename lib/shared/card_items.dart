@@ -26,7 +26,6 @@ class Carditems extends StatelessWidget {
                 width: dsize.width * .3,
                 child: FittedBox(
                   child: Image.asset(imagelocation),
-                  fit: BoxFit.fill,
                 ),
               ),
               Expanded(

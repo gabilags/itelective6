@@ -356,12 +356,12 @@ class _LoginState extends State<Login> {
                   child: Row(children: [
                     Container(
                       height: dsize.height,
-                      width: dsize.width * .4,
+                      width: dsize.width * .35,
                       color: Colors.white,
                       alignment: Alignment.center,
                       child: Container(
                         height: dsize.height * .7,
-                        width: dsize.width * .3,
+                        width: dsize.width * .2,
                         child: Column(
                           children: [
                             Container(
@@ -390,7 +390,8 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: dsize.width, height: 10),
+                            Container(
+                                width: dsize.width, height: dsize.height * .01),
                             Container(
                               height: 50,
                               width: dsize.width,
@@ -416,7 +417,8 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: dsize.width, height: 10),
+                            Container(
+                                width: dsize.width, height: dsize.height * .04),
                             Container(
                               height: 50,
                               width: dsize.width,
@@ -425,7 +427,7 @@ class _LoginState extends State<Login> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    width: dsize.width * .15,
+                                    width: dsize.width * .1,
                                     height: double.infinity,
                                     child: CheckboxListTile(
                                       title: const Text("Remember me",
@@ -445,7 +447,7 @@ class _LoginState extends State<Login> {
                                   TextButton(
                                     style: TextButton.styleFrom(
                                       fixedSize:
-                                          Size(dsize.width * .12, dsize.height),
+                                          Size(dsize.width * .1, dsize.height),
                                       primary: Colors.white,
                                       backgroundColor: Colors.blue,
                                       shape: const BeveledRectangleBorder(
@@ -465,6 +467,8 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                             Container(
+                                width: dsize.width, height: dsize.height * .03),
+                            Container(
                               height: 50,
                               width: dsize.width,
                               child: Row(
@@ -474,7 +478,7 @@ class _LoginState extends State<Login> {
                                   TextButton(
                                     style: TextButton.styleFrom(
                                       fixedSize:
-                                          Size(dsize.width * .12, dsize.height),
+                                          Size(dsize.width * .1, dsize.height),
                                       primary: Colors.blue,
                                     ),
                                     onPressed: () {},
@@ -488,7 +492,7 @@ class _LoginState extends State<Login> {
                                   TextButton(
                                     style: TextButton.styleFrom(
                                       fixedSize:
-                                          Size(dsize.width * .12, dsize.height),
+                                          Size(dsize.width * .1, dsize.height),
                                       primary: Colors.grey,
                                     ),
                                     onPressed: () {},
@@ -503,6 +507,8 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                             Container(
+                                width: dsize.width, height: dsize.height * .03),
+                            Container(
                               height: 50,
                               width: double.infinity,
                               child: Row(
@@ -511,7 +517,7 @@ class _LoginState extends State<Login> {
                                 children: [
                                   Container(
                                     height: 1,
-                                    width: dsize.width * .1,
+                                    width: dsize.width * .08,
                                     color: Colors.grey,
                                   ),
                                   Container(
@@ -524,12 +530,14 @@ class _LoginState extends State<Login> {
                                   ),
                                   Container(
                                     height: 1,
-                                    width: dsize.width * .1,
+                                    width: dsize.width * .08,
                                     color: Colors.grey,
                                   ),
                                 ],
                               ),
                             ),
+                            Container(
+                                width: dsize.width, height: dsize.height * .03),
                             Expanded(
                               child: Container(
                                 width: dsize.width,
@@ -537,11 +545,12 @@ class _LoginState extends State<Login> {
                                   children: [
                                     Container(
                                       width: dsize.width,
-                                      height: dsize.height * .07,
+                                      height: dsize.height * .05,
                                       child: Row(
                                         children: [
                                           Container(
                                             width: 70,
+                                            height: dsize.height,
                                             alignment: Alignment.center,
                                             decoration: BoxDecoration(
                                               color: Colors.indigo[800],
@@ -584,14 +593,17 @@ class _LoginState extends State<Login> {
                                         ],
                                       ),
                                     ),
-                                    SizedBox(width: dsize.width, height: 20),
+                                    Container(
+                                        width: dsize.width,
+                                        height: dsize.height * .02),
                                     Container(
                                       width: double.infinity,
-                                      height: dsize.height * .07,
+                                      height: dsize.height * .05,
                                       child: Row(
                                         children: <Widget>[
                                           Container(
                                             width: 70,
+                                            height: dsize.height,
                                             alignment: Alignment.center,
                                             decoration: BoxDecoration(
                                               color: Colors.blue[600],
@@ -606,7 +618,7 @@ class _LoginState extends State<Login> {
                                           ),
                                           Expanded(
                                             child: Container(
-                                              height: dsize.height * .07,
+                                              height: dsize.height,
                                               decoration: const BoxDecoration(
                                                   color: Colors.blue,
                                                   borderRadius:
@@ -632,14 +644,17 @@ class _LoginState extends State<Login> {
                                         ],
                                       ),
                                     ),
-                                    SizedBox(width: dsize.width, height: 20),
+                                    Container(
+                                        width: dsize.width,
+                                        height: dsize.height * .02),
                                     Container(
                                       width: double.infinity,
-                                      height: dsize.height * .07,
+                                      height: dsize.height * .05,
                                       child: Row(
                                         children: <Widget>[
                                           Container(
                                             width: 70,
+                                            height: dsize.height,
                                             alignment: Alignment.center,
                                             decoration: BoxDecoration(
                                               color: Colors.red[700],
@@ -654,7 +669,7 @@ class _LoginState extends State<Login> {
                                           ),
                                           Expanded(
                                             child: Container(
-                                              height: dsize.height * .07,
+                                              height: dsize.height,
                                               decoration: BoxDecoration(
                                                   color: Colors.red[700],
                                                   borderRadius:

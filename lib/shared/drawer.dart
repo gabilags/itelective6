@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itelective61/screens/login_ui.dart';
 import 'package:itelective61/shared/firebase_authentication.dart';
-import 'package:provider/src/provider.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);

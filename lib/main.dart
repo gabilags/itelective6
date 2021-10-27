@@ -2,11 +2,11 @@ import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:itelective61/screens/home_ui.dart';
+import 'package:itelective61/screens/login_ui.dart';
 import 'package:itelective61/shared/firebase_authentication.dart';
 import 'package:itelective61/shared/reg_users.dart';
 import 'package:provider/provider.dart';
-import 'screens/home_ui.dart';
-import 'screens/login_ui.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

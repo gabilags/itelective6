@@ -1,4 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:itelective61/shared/firebase_authentication.dart';
+import 'package:itelective61/shared/login_notifier.dart';
+import 'package:provider/provider.dart';
+
+class LoginView extends StatelessWidget {
+  const LoginView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<LoginNotifier>(
+        create: (context) => LoginNotifier(context.read),
+        builder: (context, child) {
+          return const Scaffold(
+            body: Login(),
+          );
+        });
+  }
+}
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -18,61 +36,56 @@ class _LoginState extends State<Login> {
             ? Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Center(
-                  child: Container(
+                  child: SizedBox(
                     height: dsize.height * .75,
                     width: dsize.width * .7,
                     child: Column(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 50,
                           width: dsize.width,
-                          child: Container(
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                  prefixIcon: Icon(
-                                      Icons.account_circle_outlined,
-                                      size: 25),
-                                  contentPadding: EdgeInsets.all(20),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5)),
-                                    borderSide: BorderSide(
-                                        color: Colors.grey, width: 1.0),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5)),
-                                    borderSide: BorderSide(
-                                        color: Colors.grey, width: 1.0),
-                                  ),
-                                  hintText: 'Username or Email'),
-                            ),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.account_circle_outlined,
+                                    size: 25),
+                                contentPadding: EdgeInsets.all(20),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)),
+                                  borderSide: BorderSide(
+                                      color: Colors.grey, width: 1.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)),
+                                  borderSide: BorderSide(
+                                      color: Colors.grey, width: 1.0),
+                                ),
+                                hintText: 'Username or Email'),
                           ),
                         ),
                         SizedBox(width: dsize.width, height: 10),
                         Container(
                           height: 50,
                           width: dsize.width,
-                          child: Container(
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                  prefixIcon:
-                                      Icon(Icons.vpn_key_outlined, size: 25),
-                                  contentPadding: EdgeInsets.all(20.0),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5)),
-                                    borderSide: BorderSide(
-                                        color: Colors.grey, width: 1.0),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5)),
-                                    borderSide: BorderSide(
-                                        color: Colors.grey, width: 1.0),
-                                  ),
-                                  hintText: 'Password'),
-                            ),
+                          child: const TextField(
+                            decoration: InputDecoration(
+                                prefixIcon:
+                                    Icon(Icons.vpn_key_outlined, size: 25),
+                                contentPadding: EdgeInsets.all(20.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)),
+                                  borderSide: BorderSide(
+                                      color: Colors.grey, width: 1.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)),
+                                  borderSide: BorderSide(
+                                      color: Colors.grey, width: 1.0),
+                                ),
+                                hintText: 'Password'),
                           ),
                         ),
                         SizedBox(width: dsize.width, height: 20),
@@ -109,10 +122,7 @@ class _LoginState extends State<Login> {
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(2))),
                                 ),
-                                onPressed: () {
-                                  Navigator.pushReplacementNamed(
-                                      context, "/loading");
-                                },
+                                onPressed: () {},
                                 child: const Text('Login',
                                     style: TextStyle(
                                       fontSize: 17,
@@ -226,7 +236,12 @@ class _LoginState extends State<Login> {
                                               primary: Colors.white,
                                               backgroundColor: Colors.blue[900],
                                             ),
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              context
+                                                  .read<
+                                                      Firebase_Authentication>()
+                                                  .loginwithGoogle();
+                                            },
                                             child: const Text(
                                                 'LOGIN WITH FACEBOOK',
                                                 style: TextStyle(fontSize: 17)),
@@ -367,27 +382,25 @@ class _LoginState extends State<Login> {
                             Container(
                               height: 50,
                               width: dsize.width,
-                              child: Container(
-                                child: const TextField(
-                                  decoration: InputDecoration(
-                                      prefixIcon: Icon(
-                                          Icons.account_circle_outlined,
-                                          size: 25),
-                                      contentPadding: EdgeInsets.all(20),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)),
-                                        borderSide: BorderSide(
-                                            color: Colors.grey, width: 1.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)),
-                                        borderSide: BorderSide(
-                                            color: Colors.grey, width: 1.0),
-                                      ),
-                                      hintText: 'Username or Email'),
-                                ),
+                              child: const TextField(
+                                decoration: InputDecoration(
+                                    prefixIcon: Icon(
+                                        Icons.account_circle_outlined,
+                                        size: 25),
+                                    contentPadding: EdgeInsets.all(20),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5)),
+                                      borderSide: BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5)),
+                                      borderSide: BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                    ),
+                                    hintText: 'Username or Email'),
                               ),
                             ),
                             Container(
@@ -395,26 +408,24 @@ class _LoginState extends State<Login> {
                             Container(
                               height: 50,
                               width: dsize.width,
-                              child: Container(
-                                child: const TextField(
-                                  decoration: InputDecoration(
-                                      prefixIcon: Icon(Icons.vpn_key_outlined,
-                                          size: 25),
-                                      contentPadding: EdgeInsets.all(20.0),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)),
-                                        borderSide: BorderSide(
-                                            color: Colors.grey, width: 1.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)),
-                                        borderSide: BorderSide(
-                                            color: Colors.grey, width: 1.0),
-                                      ),
-                                      hintText: 'Password'),
-                                ),
+                              child: const TextField(
+                                decoration: InputDecoration(
+                                    prefixIcon:
+                                        Icon(Icons.vpn_key_outlined, size: 25),
+                                    contentPadding: EdgeInsets.all(20.0),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5)),
+                                      borderSide: BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5)),
+                                      borderSide: BorderSide(
+                                          color: Colors.grey, width: 1.0),
+                                    ),
+                                    hintText: 'Password'),
                               ),
                             ),
                             Container(
@@ -454,10 +465,7 @@ class _LoginState extends State<Login> {
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(2))),
                                     ),
-                                    onPressed: () {
-                                      Navigator.pushReplacementNamed(
-                                          context, "/loading");
-                                    },
+                                    onPressed: () {},
                                     child: const Text('Login',
                                         style: TextStyle(
                                           fontSize: 17,
@@ -686,7 +694,12 @@ class _LoginState extends State<Login> {
                                                   backgroundColor:
                                                       Colors.red[600],
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context
+                                                      .read<
+                                                          Firebase_Authentication>()
+                                                      .loginwithGoogle();
+                                                },
                                                 child: const Text(
                                                     'LOGIN WITH GOOGLE',
                                                     style: TextStyle(

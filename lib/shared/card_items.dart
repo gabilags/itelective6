@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class Carditems extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final id;
+  // ignore: prefer_typing_uninitialized_variables
   final name;
+  // ignore: prefer_typing_uninitialized_variables
   final desc;
+  // ignore: prefer_typing_uninitialized_variables
   final price;
+  // ignore: prefer_typing_uninitialized_variables
   final imagelocation;
 
-  Carditems({this.id, this.name, this.desc, this.price, this.imagelocation});
+  // ignore: use_key_in_widget_constructors
+  const Carditems(
+      {this.id, this.name, this.desc, this.price, this.imagelocation});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +41,7 @@ class Carditems extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
@@ -45,7 +52,7 @@ class Carditems extends StatelessWidget {
                             ),
                           )),
                       Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Text(
                           desc,
                           style: TextStyle(fontSize: dsize.width * .022),
@@ -95,28 +102,29 @@ class Carditems extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Padding(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 child: Text(
                   name,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 15),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 child: Text(
                   desc,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 14),
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 10),
                   child: Align(
                     alignment: Alignment.topRight,
                     child: Text(
                       usdCurrency.format(double.parse(price)),
-                      style:
-                          TextStyle(fontStyle: FontStyle.italic, fontSize: 13),
+                      style: const TextStyle(
+                          fontStyle: FontStyle.italic, fontSize: 13),
                     ),
                   )),
             ],

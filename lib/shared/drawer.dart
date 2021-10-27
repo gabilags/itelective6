@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:itelective61/screens/login_ui.dart';
+import 'package:itelective61/shared/firebase_authentication.dart';
+import 'package:provider/src/provider.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -10,7 +13,6 @@ class DrawerWidget extends StatefulWidget {
 class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
-    Size dsize = MediaQuery.of(context).size;
     return ListView(
       padding: EdgeInsets.zero,
       children: [
@@ -42,31 +44,35 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           )),
         ),
         ListTile(
-          leading: Icon(Icons.account_circle),
+          leading: const Icon(Icons.account_circle),
           title: const Text('Your Profile'),
           onTap: () {
             Navigator.pop(context);
           },
         ),
         ListTile(
-          leading: Icon(Icons.inbox),
+          leading: const Icon(Icons.inbox),
           title: const Text('Your Inbox'),
           onTap: () {
             Navigator.pop(context);
           },
         ),
         ListTile(
-          leading: Icon(Icons.analytics),
+          leading: const Icon(Icons.analytics),
           title: const Text('Your Dashboard'),
           onTap: () {
             Navigator.pop(context);
           },
         ),
         ListTile(
-          leading: Icon(Icons.settings),
+          leading: const Icon(Icons.settings),
           title: const Text('Settings'),
-          onTap: () {
-            Navigator.pop(context);
+          onTap: () async {
+            await Firebase_Authentication().logOut(context).whenComplete(() {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => const LoginView()),
+                  (route) => false);
+            });
           },
         ),
       ],

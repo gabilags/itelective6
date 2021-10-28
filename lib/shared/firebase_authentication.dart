@@ -80,6 +80,7 @@ class Firebase_Authentication {
           "display": true,
         });
       }
+
       print("FirebaseAuth " +
           loginUser.display.toString() +
           " " +

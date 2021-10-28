@@ -80,8 +80,10 @@ class Firebase_Authentication {
           "display": true,
         });
       }
-
-      print(loginUser.displayname);
+      print("FirebaseAuth " +
+          loginUser.display.toString() +
+          " " +
+          loginUser.displayname);
       this.currentUser = loginUser;
 
       return loginUser;

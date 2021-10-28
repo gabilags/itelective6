@@ -32,11 +32,16 @@ class Firebase_Authentication {
   }
 
   Stream<RegUsers> get getUser {
-    return _auth.authStateChanges().map((duser) {
-      return userFromFirebaseUser(duser!);
+    return _auth.authStateChanges().map((user) {
+      return userFromFirebaseUser(user!);
     }).handleError((error) {
       return RegUsers();
     });
+  }
+
+  Future<RegUsers> signInAnonymously() async {
+    final authResult = await _auth.signInAnonymously();
+    return userFromFirebaseUser(authResult.user!);
   }
 
   Future loginwithGoogle() async {

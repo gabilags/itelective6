@@ -10,9 +10,9 @@ class LoginNotifier extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  Future<void> loginwithGoogle() async {
+  Future<void> signInAnonymously() async {
     _setLoading();
-    await locator<Firebase_Authentication>().loginwithGoogle();
+    await locator<Firebase_Authentication>().signInAnonymously();
     _setNotLoading();
   }
 

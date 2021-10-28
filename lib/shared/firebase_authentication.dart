@@ -34,8 +34,8 @@ class Firebase_Authentication {
   }
 
   Stream<RegUsers> get getUser {
-    return _auth.authStateChanges().map((user) {
-      return userFromFirebaseUser(user!);
+    return _auth.authStateChanges().map((duser) {
+      return userFromFirebaseUser(duser!);
     }).handleError((error) {
       return RegUsers();
     });
@@ -115,9 +115,10 @@ class Firebase_Authentication {
       return Items(
         uid: doc.id,
         display: doc.get('display') ?? true,
-        name: doc.get('name'),
-        desc: doc.get('description'),
-        photoUrl: doc.get('photoUrl'),
+        name: doc.get('name') ?? "",
+        desc: doc.get('description') ?? "",
+        photoUrl: doc.get('photoUrl') ?? "",
+        price: doc.get('price') ?? "0",
       );
     }).toList();
   }

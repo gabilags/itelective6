@@ -1,81 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:itelective61/shared/reg_users.dart';
 
 class Carditems extends StatelessWidget {
-  // ignore: prefer_typing_uninitialized_variables
-  final id;
-  // ignore: prefer_typing_uninitialized_variables
-  final name;
-  // ignore: prefer_typing_uninitialized_variables
-  final desc;
-  // ignore: prefer_typing_uninitialized_variables
-  final price;
-  // ignore: prefer_typing_uninitialized_variables
-  final imagelocation;
-
-  // ignore: use_key_in_widget_constructors
-  const Carditems(
-      {this.id, this.name, this.desc, this.price, this.imagelocation});
+  final Items item;
+  const Carditems({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var usdCurrency = NumberFormat.simpleCurrency(locale: "en_US");
     Size dsize = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () => showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: Text(name, style: TextStyle(fontSize: dsize.width * .02)),
-          content: Row(
-            children: [
-              Container(
-                height: dsize.height * .6,
-                width: dsize.width * .3,
-                child: FittedBox(
-                  child: Image.asset(imagelocation),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  height: dsize.height * .6,
-                  child: Column(
-                    children: [
-                      Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              "Shop Now: ${usdCurrency.format(double.parse(price))}",
-                              style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: dsize.width * .02),
-                            ),
-                          )),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Text(
-                          desc,
-                          style: TextStyle(fontSize: dsize.width * .022),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'Close'),
-              child: Text(
-                'Close',
-                style:
-                    TextStyle(color: Colors.green, fontSize: dsize.width * .02),
-              ),
-            ),
-          ],
-        ),
-      ),
+      onTap: () {},
       child: Material(
         elevation: 20,
         borderRadius: const BorderRadius.all(
@@ -95,7 +31,7 @@ class Carditems extends StatelessWidget {
                     top: Radius.circular(10),
                   ),
                   child: FittedBox(
-                    child: Image.asset(imagelocation),
+                    child: Image.asset(item.photoUrl),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -104,7 +40,7 @@ class Carditems extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(5),
                 child: Text(
-                  name,
+                  item.name,
                   style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 15),
                 ),
@@ -112,7 +48,7 @@ class Carditems extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(5),
                 child: Text(
-                  desc,
+                  item.desc,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(fontSize: 14),
                 ),
@@ -122,7 +58,7 @@ class Carditems extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.topRight,
                     child: Text(
-                      usdCurrency.format(double.parse(price)),
+                      usdCurrency.format(double.parse(item.price)),
                       style: const TextStyle(
                           fontStyle: FontStyle.italic, fontSize: 13),
                     ),

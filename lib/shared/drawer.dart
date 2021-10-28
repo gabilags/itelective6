@@ -57,15 +57,15 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           },
         ),
         ListTile(
-          leading: const Icon(Icons.analytics),
-          title: const Text('Your Dashboard'),
+          leading: const Icon(Icons.settings),
+          title: const Text('Settings'),
           onTap: () {
             Navigator.pop(context);
           },
         ),
         ListTile(
-          leading: const Icon(Icons.settings),
-          title: const Text('Settings'),
+          leading: const Icon(Icons.cancel_outlined),
+          title: const Text('Logout'),
           onTap: () async {
             await Firebase_Authentication().logOut(context).whenComplete(() {
               Navigator.of(context).pushAndRemoveUntil(

@@ -19,6 +19,7 @@ class Items {
   String name;
   String desc;
   String photoUrl;
+  String price;
   bool display;
 
   Items({
@@ -26,6 +27,7 @@ class Items {
     this.name = "",
     this.desc = "",
     this.photoUrl = "",
+    this.price = "",
     this.display = false,
   });
 }

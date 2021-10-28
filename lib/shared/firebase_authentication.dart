@@ -65,7 +65,13 @@ class Firebase_Authentication {
       RegUsers loginUser = RegUsers();
       loginUser = userFromFirebaseUser(user!);
 
-      print("logIn");
+      await FirebaseFirestore.instance.collection("items").doc("indoor6").set({
+        'display': true,
+        'description': 'working',
+        'name': 'hello',
+        'photoUrl': 'new',
+        'price': '0',
+      });
       // Data Collection
       DocumentSnapshot ds = await FirebaseFirestore.instance
           .collection("regusers")

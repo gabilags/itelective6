@@ -136,6 +136,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (context, snapshot) {
                       List<Items> items = Provider.of<List<Items>>(context);
                       return Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
                         alignment: WrapAlignment.center,
                         direction: Axis.horizontal,
                         children: items.map((items) {

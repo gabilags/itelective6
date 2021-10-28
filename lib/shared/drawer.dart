@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:itelective61/screens/login_ui.dart';
 import 'package:itelective61/shared/firebase_authentication.dart';
+import 'package:itelective61/shared/reg_users.dart';
+import 'package:provider/provider.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -20,27 +23,35 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             color: Colors.green,
           ),
           child: Center(
-              child: Column(
-            children: [
-              CircleAvatar(
-                  radius: 45,
-                  backgroundColor: Colors.white,
-                  child: CircleAvatar(
-                      radius: 40,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        child: Image.asset("assets/profile.jpg"),
-                      ))),
-              const Text(
-                'Jerwell Jones Gabilagon',
-                style: TextStyle(color: Colors.white, fontSize: 17),
-              ),
-              const Text(
-                'BS Information Technology',
-                style: TextStyle(color: Colors.white, fontSize: 13),
-              ),
-            ],
-          )),
+            child: StreamProvider<RegUsers>.value(
+              value: Firebase_Authentication().getUser,
+              builder: (context, snapshot) {
+                RegUsers users = Provider.of<RegUsers>(context);
+                return Column(
+                  children: [
+                    CircleAvatar(
+                        radius: 45,
+                        backgroundColor: Colors.white,
+                        child: CircleAvatar(
+                            radius: 40,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.network(users.photoUrl),
+                            ))),
+                    Text(
+                      users.displayname,
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                    ),
+                    Text(
+                      users.email,
+                      style: TextStyle(color: Colors.white, fontSize: 13),
+                    ),
+                  ],
+                );
+              },
+              initialData: RegUsers(),
+            ),
+          ),
         ),
         ListTile(
           leading: const Icon(Icons.account_circle),
@@ -64,7 +75,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           },
         ),
         ListTile(
-          leading: const Icon(Icons.cancel_outlined),
+          leading: const Icon(Icons.logout),
           title: const Text('Logout'),
           onTap: () async {
             await Firebase_Authentication().logOut(context).whenComplete(() {

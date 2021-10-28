@@ -81,7 +81,6 @@ class Firebase_Authentication {
         });
       }
 
-      // ignore: avoid_print
       print(loginUser.displayname);
       this.currentUser = loginUser;
 
@@ -97,22 +96,21 @@ class Firebase_Authentication {
   }
 
   //Streaming of item list
-  Stream<List<RegUsers>> getUsers() {
-    return FirebaseFirestore.instance
-        .collection("regusers")
+  Stream<List<Items>> getItems() {
+    return itemsCollection
         .where("display", isEqualTo: true)
         .snapshots()
-        .map(getUsersSnap);
+        .map(getItemsSnap);
   }
 
   //Mapping of item list
-  List<RegUsers> getUsersSnap(QuerySnapshot snapshots) {
+  List<Items> getItemsSnap(QuerySnapshot snapshots) {
     return snapshots.docs.map((doc) {
-      return RegUsers(
+      return Items(
         uid: doc.id,
         display: doc.get('display') ?? true,
-        displayname: doc.get('displayname'),
-        email: doc.get('email'),
+        name: doc.get('name'),
+        desc: doc.get('description'),
         photoUrl: doc.get('photoUrl'),
       );
     }).toList();

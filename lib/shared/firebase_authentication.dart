@@ -66,10 +66,7 @@ class Firebase_Authentication {
       loginUser = userFromFirebaseUser(user!);
 
       // Data Collection
-      DocumentSnapshot ds = await FirebaseFirestore.instance
-          .collection("regusers")
-          .doc(loginUser.uid)
-          .get();
+      DocumentSnapshot ds = await regUsersCollection.doc(loginUser.uid).get();
       if (ds.exists) {
         loginUser.display = ds["display"];
       } else {

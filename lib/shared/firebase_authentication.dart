@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -75,6 +77,7 @@ class Firebase_Authentication {
       RegUsers loginUser = RegUsers();
       loginUser = userFromFirebaseUser(user!);
       addCollection();
+      log(loginUser.displayname);
 
       // Data Collection
       DocumentSnapshot ds = await FirebaseFirestore.instance

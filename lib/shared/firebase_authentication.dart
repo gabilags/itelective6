@@ -18,9 +18,9 @@ class Firebase_Authentication {
       FirebaseFirestore.instance.collection("items");
 
   Firebase_Authentication(
-      {FirebaseAuth? auth, GoogleSignIn? googleSignIn, RegUsers? loginUser})
+      {FirebaseAuth? auth, GoogleSignIn? googlesignin, RegUsers? loginUser})
       : _auth = auth ?? FirebaseAuth.instance,
-        _googleSignIn = googleSignIn ?? GoogleSignIn(),
+        _googleSignIn = googlesignin ?? GoogleSignIn(),
         currentUser = loginUser ?? RegUsers();
 
   RegUsers userFromFirebaseUser(User user) {

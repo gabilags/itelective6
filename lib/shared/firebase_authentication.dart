@@ -46,16 +46,6 @@ class Firebase_Authentication {
     return userFromFirebaseUser(authResult.user!);
   }
 
-  Future<void> addCollection() async {
-    await FirebaseFirestore.instance.collection("items").doc("indoor6").set({
-      'display': true,
-      'description': 'working',
-      'name': 'hello',
-      'photoUrl': 'new',
-      'price': '0',
-    });
-  }
-
   Future loginwithGoogle() async {
     try {
       GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
@@ -76,9 +66,6 @@ class Firebase_Authentication {
 
       RegUsers loginUser = RegUsers();
       loginUser = userFromFirebaseUser(user!);
-      addCollection();
-      log(loginUser.displayname);
-
       // Data Collection
       DocumentSnapshot ds = await FirebaseFirestore.instance
           .collection("regusers")
@@ -97,7 +84,7 @@ class Firebase_Authentication {
           "display": true,
         });
       }
-      print("FirebaseAuth " +
+      log("FirebaseAuth " +
           loginUser.display.toString() +
           " " +
           loginUser.displayname);

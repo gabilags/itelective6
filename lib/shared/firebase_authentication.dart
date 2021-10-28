@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:itelective61/shared/reg_users.dart';
 
+// ignore: camel_case_types
 class Firebase_Authentication {
   RegUsers currentUser;
   final FirebaseAuth _auth;
@@ -60,7 +61,6 @@ class Firebase_Authentication {
       loginUser = userFromFirebaseUser(user!);
 
       // Data Collection
-
       DocumentSnapshot ds = await FirebaseFirestore.instance
           .collection("regusers")
           .doc(loginUser.uid)
@@ -71,7 +71,7 @@ class Firebase_Authentication {
         await regUsersCollection.doc(loginUser.uid).set({
           "displayname": loginUser.displayname,
           "email": loginUser.email,
-          "photourl": loginUser.photoUrl,
+          "photoUrl": loginUser.photoUrl,
           "display": true,
         });
       }

@@ -97,21 +97,22 @@ class Firebase_Authentication {
   }
 
   //Streaming of item list
-  Stream<List<Items>> getItems() {
-    return itemsCollection
+  Stream<List<RegUsers>> getUsers() {
+    return FirebaseFirestore.instance
+        .collection("regusers")
         .where("display", isEqualTo: true)
         .snapshots()
-        .map(getItemsSnap);
+        .map(getUsersSnap);
   }
 
   //Mapping of item list
-  List<Items> getItemsSnap(QuerySnapshot snapshots) {
+  List<RegUsers> getUsersSnap(QuerySnapshot snapshots) {
     return snapshots.docs.map((doc) {
-      return Items(
+      return RegUsers(
         uid: doc.id,
         display: doc.get('display') ?? true,
-        name: doc.get('name'),
-        desc: doc.get('description'),
+        displayname: doc.get('displayname'),
+        email: doc.get('email'),
         photoUrl: doc.get('photoUrl'),
       );
     }).toList();

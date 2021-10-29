@@ -117,7 +117,7 @@ class _LoginState extends State<Login> {
                                   fixedSize:
                                       Size(dsize.width * .3, dsize.height),
                                   primary: Colors.white,
-                                  backgroundColor: Colors.black45,
+                                  backgroundColor: Colors.blue,
                                   shape: const BeveledRectangleBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(2))),
@@ -465,7 +465,7 @@ class _LoginState extends State<Login> {
                                       fixedSize:
                                           Size(dsize.width * .1, dsize.height),
                                       primary: Colors.white,
-                                      backgroundColor: Colors.black45,
+                                      backgroundColor: Colors.blue,
                                       shape: const BeveledRectangleBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(2))),

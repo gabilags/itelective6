@@ -99,24 +99,27 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        toolbarHeight: 50,
+        toolbarHeight: 75,
         shadowColor: Colors.black45,
         title: const Text(
           'INDOOR PLANTS',
         ),
         actions: [
-          TextButton.icon(
-              onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
-              style: TextButton.styleFrom(
-                fixedSize: Size(dsize.width * .08, dsize.height * .04),
-                primary: Colors.white,
-                backgroundColor: Colors.green,
-              ),
-              icon: const Icon(
-                Icons.account_circle,
-                size: 30,
-              ),
-              label: const Text("Profile"))
+          Padding(
+            padding: const EdgeInsets.all(5),
+            child: TextButton.icon(
+                onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
+                style: TextButton.styleFrom(
+                  fixedSize: Size(dsize.width * .08, dsize.height * .05),
+                  primary: Colors.white,
+                  backgroundColor: Colors.green,
+                ),
+                icon: const Icon(
+                  Icons.account_circle,
+                  size: 30,
+                ),
+                label: const Text("Profile")),
+          )
         ],
       ),
       endDrawerEnableOpenDragGesture: false,

@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 50,
         shadowColor: Colors.black45,
         title: const Text(
           'INDOOR PLANTS',

@@ -106,11 +106,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(5),
+            padding: const EdgeInsets.all(8),
             child: TextButton.icon(
                 onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
                 style: TextButton.styleFrom(
-                  fixedSize: Size(dsize.width * .08, dsize.height * .05),
+                  fixedSize: Size(dsize.width * .08, dsize.height * .04),
                   primary: Colors.white,
                   backgroundColor: Colors.green,
                 ),

@@ -108,11 +108,9 @@ class _HomeScreenState extends State<HomeScreen> {
           TextButton.icon(
               onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
               style: TextButton.styleFrom(
-                fixedSize: Size(dsize.width * .08, dsize.height * .05),
+                fixedSize: Size(dsize.width * .08, dsize.height * .04),
                 primary: Colors.white,
                 backgroundColor: Colors.green,
-                shape: const BeveledRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(4))),
               ),
               icon: const Icon(
                 Icons.account_circle,

@@ -21,14 +21,14 @@ class ItemView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
-        shadowColor: Colors.black,
+        shadowColor: Colors.black45,
         title: const Text(
           'INDOOR PLANTS',
         ),
         actions: [
           IconButton(
             icon: const Icon(
-              Icons.dashboard,
+              Icons.arrow_back,
               size: 30,
             ),
             onPressed: () => Navigator.of(context).pushAndRemoveUntil(

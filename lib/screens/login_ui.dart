@@ -117,7 +117,7 @@ class _LoginState extends State<Login> {
                                   fixedSize:
                                       Size(dsize.width * .3, dsize.height),
                                   primary: Colors.white,
-                                  backgroundColor: Colors.blue,
+                                  backgroundColor: Colors.black45,
                                   shape: const BeveledRectangleBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(2))),
@@ -331,7 +331,12 @@ class _LoginState extends State<Login> {
                                               primary: Colors.white,
                                               backgroundColor: Colors.red[600],
                                             ),
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              context
+                                                  .read<
+                                                      Firebase_Authentication>()
+                                                  .loginwithGoogle();
+                                            },
                                             child: const Text(
                                                 'LOGIN WITH GOOGLE',
                                                 style: TextStyle(fontSize: 17)),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:itelective61/screens/view_ui.dart';
 import 'package:itelective61/shared/reg_users.dart';
 
 class Carditems extends StatelessWidget {
@@ -11,7 +12,17 @@ class Carditems extends StatelessWidget {
     var usdCurrency = NumberFormat.simpleCurrency(locale: "en_US");
     Size dsize = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+                builder: (context) => ItemView(
+                      itemName: item.name,
+                      itemDesc: item.desc,
+                      itemPrice: item.price,
+                      itemPhoto: item.photoUrl,
+                    )),
+            (route) => false);
+      },
       child: Material(
         elevation: 20,
         borderRadius: const BorderRadius.all(

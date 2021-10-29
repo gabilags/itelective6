@@ -100,18 +100,25 @@ class _HomeScreenState extends State<HomeScreen> {
       key: _scaffoldKey,
       appBar: AppBar(
         toolbarHeight: 100,
-        shadowColor: Colors.black,
+        shadowColor: Colors.black45,
         title: const Text(
           'INDOOR PLANTS',
         ),
         actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.dashboard,
-              size: 30,
-            ),
-            onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
-          )
+          TextButton.icon(
+              onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
+              style: TextButton.styleFrom(
+                fixedSize: Size(dsize.width * .1, dsize.height * .1),
+                primary: Colors.white,
+                backgroundColor: Colors.green,
+                shape: const BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(4))),
+              ),
+              icon: const Icon(
+                Icons.account_circle,
+                size: 30,
+              ),
+              label: const Text("Profile"))
         ],
       ),
       endDrawerEnableOpenDragGesture: false,

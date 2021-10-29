@@ -54,13 +54,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           ),
         ),
         ListTile(
-          leading: const Icon(Icons.account_circle),
-          title: const Text('Your Profile'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
           leading: const Icon(Icons.inbox),
           title: const Text('Your Inbox'),
           onTap: () {

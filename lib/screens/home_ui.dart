@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
           TextButton.icon(
               onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
               style: TextButton.styleFrom(
-                fixedSize: Size(dsize.width * .1, dsize.height * .1),
+                fixedSize: Size(dsize.width * .08, dsize.height * .05),
                 primary: Colors.white,
                 backgroundColor: Colors.green,
                 shape: const BeveledRectangleBorder(
